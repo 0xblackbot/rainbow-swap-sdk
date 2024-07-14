@@ -1,8 +1,9 @@
-import {API} from "../globals";
-import {BestRouteResponse} from "../types/best-route-response.type";
-import {AssetsRecordResponse} from "../types/assets-record-response.type";
+import {API} from '../globals';
+import {AssetsRecordResponse} from '../types/assets-record-response.type';
+import {BestRouteResponse} from '../types/best-route-response.type';
 
-export const getAssetsRecord = () => API.get<AssetsRecordResponse>('/assets-record');
+export const getAssetsRecord = () =>
+    API.get<AssetsRecordResponse>('/assets-record');
 
 export const getBestRoute = (params: {
     inputAssetAmount: string;

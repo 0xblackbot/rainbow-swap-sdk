@@ -1,5 +1,5 @@
-import {DexTypeEnum} from "../enums/dex-type.enum";
-import {RouteDirectionEnum} from "../enums/route-direction.enum";
+import {DexTypeEnum} from '../enums/dex-type.enum';
+import {RouteDirectionEnum} from '../enums/route-direction.enum';
 
 export interface RouteStep {
     dexType: DexTypeEnum;

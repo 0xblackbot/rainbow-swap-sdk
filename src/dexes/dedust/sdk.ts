@@ -1,4 +1,4 @@
-import {Address, Cell} from "@ton/core";
+import {Address, Cell} from '@ton/core';
 
 export const DEDUST_FACTORY_ADDRESS =
     'EQBfBWT7X2BHg9tXAxzhz2aKiNTU1tpt5NsiK0uSDW_YAJ67';

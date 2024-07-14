@@ -1,7 +1,7 @@
 import {Address, beginCell} from '@ton/core';
 
 import {DEDUST_FACTORY_ADDRESS} from './sdk';
-import {TON, TON_CLIENT} from "../../globals";
+import {TON, TON_CLIENT} from '../../globals';
 
 enum AssetType {
     TON = 0,

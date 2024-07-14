@@ -1,11 +1,15 @@
 import {Address} from '@ton/core';
-import {RouteStepWithCalculation} from "../../interfaces/route-step-with-calculation.interface";
-import {SwapParams, SwapStep} from "./sdk";
-import {applySlippageTolerance} from "../shared/slippage-tolerance.utils";
-import {dedust_getVaultAddress} from "./vault.utils";
-import {JETTON_TRANSFER_GAS_AMOUNT, TON} from "../../globals";
-import {packJettonSwap, packTonSwap} from "./transfer-params-pack.utils";
-import {getJettonTransferBody, getJettonWalletAddress} from "../../utils/jetton.utils";
+
+import {SwapParams, SwapStep} from './sdk';
+import {packJettonSwap, packTonSwap} from './transfer-params-pack.utils';
+import {dedust_getVaultAddress} from './vault.utils';
+import {JETTON_TRANSFER_GAS_AMOUNT, TON} from '../../globals';
+import {RouteStepWithCalculation} from '../../interfaces/route-step-with-calculation.interface';
+import {
+    getJettonTransferBody,
+    getJettonWalletAddress
+} from '../../utils/jetton.utils';
+import {applySlippageTolerance} from '../shared/slippage-tolerance.utils';
 
 const createNextSwapStepPayload = (
     remainingRoute: RouteStepWithCalculation[],

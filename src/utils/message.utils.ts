@@ -1,16 +1,15 @@
-import {TransferParams} from "../interfaces/transfer-params.interface";
-import {Message} from "../interfaces/message.interface";
-import {isDefined} from "@rnw-community/shared";
+import {isDefined} from '@rnw-community/shared';
 import {Address, beginCell, storeStateInit} from '@ton/core';
-import {CalculatedSwapRoute} from "../types/calculated-swap-route.type";
+
 import {
     getRainbowWalletActivationTransferParams,
     getSwapRouteTransferParams
-} from "../dexes/shared/transfer-params.utils";
+} from '../dexes/shared/transfer-params.utils';
+import {Message} from '../interfaces/message.interface';
+import {TransferParams} from '../interfaces/transfer-params.interface';
+import {CalculatedSwapRoute} from '../types/calculated-swap-route.type';
 
-const transferParamsToMessages = (
-    transferParamsArray: TransferParams[]
-) =>
+const transferParamsToMessages = (transferParamsArray: TransferParams[]) =>
     transferParamsArray.map<Message>(transferParams => ({
         address: transferParams.to.toRawString(),
         amount: transferParams.value.toString(),
@@ -19,10 +18,10 @@ const transferParamsToMessages = (
             : undefined,
         stateInit: isDefined(transferParams.init)
             ? beginCell()
-                .store(storeStateInit(transferParams.init))
-                .endCell()
-                .toBoc()
-                .toString('base64')
+                  .store(storeStateInit(transferParams.init))
+                  .endCell()
+                  .toBoc()
+                  .toString('base64')
             : undefined
     }));
 

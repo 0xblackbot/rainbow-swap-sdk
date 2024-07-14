@@ -1,6 +1,6 @@
-import axios from "axios";
-import {toNano} from "@ton/core";
-import {TonClient} from "@ton/ton";
+import {toNano} from '@ton/core';
+import {TonClient} from '@ton/ton';
+import axios from 'axios';
 
 export const TON = 'ton';
 export const WORKCHAIN = 0;

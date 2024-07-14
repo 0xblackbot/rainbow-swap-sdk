@@ -1,5 +1,13 @@
 import {Address} from '@ton/core';
 
+import {RainbowWalletContract} from './rainbow-wallet.contract';
+import {
+    EffectType,
+    getDexTransferParams,
+    packJettonReceiveEffect,
+    packJettonSwap,
+    packTonSwap
+} from './transfer-params-pack.utils';
 import {DexTypeEnum} from '../../enums/dex-type.enum';
 import {JETTON_TRANSFER_GAS_AMOUNT, TON, WORKCHAIN} from '../../globals';
 import {RouteStepWithCalculation} from '../../interfaces/route-step-with-calculation.interface';
@@ -10,14 +18,6 @@ import {
 } from '../../utils/jetton.utils';
 import {dedust_getVaultAddress} from '../dedust/vault.utils';
 import {STON_ROUTER_ADDRESS} from '../ston/sdk';
-import {RainbowWalletContract} from "./rainbow-wallet.contract";
-import {
-    EffectType,
-    getDexTransferParams,
-    packJettonReceiveEffect,
-    packJettonSwap,
-    packTonSwap
-} from "./transfer-params-pack.utils";
 
 export const rainbow_getTransferParams = async (
     firstChunk: RouteStepWithCalculation[],

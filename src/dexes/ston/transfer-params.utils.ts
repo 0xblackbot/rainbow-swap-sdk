@@ -1,14 +1,14 @@
 import {Address} from '@ton/core';
 
+import {PROXY_TON_MASTER_ADDRESS, STON_ROUTER_ADDRESS} from './sdk';
+import {packSwapParams} from './transfer-params-pack.utils';
 import {JETTON_TRANSFER_GAS_AMOUNT, TON} from '../../globals';
 import {RouteStepWithCalculation} from '../../interfaces/route-step-with-calculation.interface';
 import {
     getJettonTransferBody,
     getJettonWalletAddress
 } from '../../utils/jetton.utils';
-import {applySlippageTolerance} from "../shared/slippage-tolerance.utils";
-import {PROXY_TON_MASTER_ADDRESS, STON_ROUTER_ADDRESS} from "./sdk";
-import {packSwapParams} from "./transfer-params-pack.utils";
+import {applySlippageTolerance} from '../shared/slippage-tolerance.utils';
 
 export const ston_getTransferParams = async (
     routeStep: RouteStepWithCalculation,
