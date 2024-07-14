@@ -3,7 +3,10 @@ import {Message} from "../interfaces/message.interface";
 import {isDefined} from "@rnw-community/shared";
 import {Address, beginCell, storeStateInit} from '@ton/core';
 import {CalculatedSwapRoute} from "../types/calculated-swap-route.type";
-import {getSwapRouteTransferParams} from "../dexes/shared/transfer-params.utils";
+import {
+    getRainbowWalletActivationTransferParams,
+    getSwapRouteTransferParams
+} from "../dexes/shared/transfer-params.utils";
 
 const transferParamsToMessages = (
     transferParamsArray: TransferParams[]
@@ -23,7 +26,11 @@ const transferParamsToMessages = (
             : undefined
     }));
 
-export const getSwapMessages = async (bestRoute: CalculatedSwapRoute[], senderAddress: string, slippageTolerance: string) => {
+export const getSwapMessages = async (
+    senderAddress: string,
+    bestRoute: CalculatedSwapRoute[],
+    slippageTolerance: string
+) => {
     const swapTransferParams = await Promise.all(
         bestRoute.map(swapRoute =>
             getSwapRouteTransferParams(
@@ -35,4 +42,12 @@ export const getSwapMessages = async (bestRoute: CalculatedSwapRoute[], senderAd
     );
 
     return transferParamsToMessages(swapTransferParams);
+};
+
+export const getRainbowWalletActivationMessages = (senderAddress: string) => {
+    const activationTransferParams = [
+        getRainbowWalletActivationTransferParams(Address.parse(senderAddress))
+    ];
+
+    return transferParamsToMessages(activationTransferParams);
 };
