@@ -1,15 +1,5 @@
 {
   "$schema": "https://unpkg.com/release-it/schema/release-it.json",
-  "git": {
-    "requireBranch": "main",
-    "commitMessage": "Release v${version}"
-  },
-  "hooks": {
-    "after:bump": "npx auto-changelog -p"
-  },
-  "github": {
-    "release": true
-  },
   "npm": {
     "publish": true
   }
