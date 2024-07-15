@@ -253,6 +253,14 @@
     "@pnpm/network.ca-file" "^1.0.1"
     config-chain "^1.1.11"
 
+"@release-it/keep-a-changelog@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@release-it/keep-a-changelog/-/keep-a-changelog-5.0.0.tgz#2685acb9ef0c4ad30797c5b68565c3325691f02d"
+  integrity sha512-Y1xqZe50jqK8qKlzEfGLVTjSkn57e/QlQMXHhKRWGgsv8Qy/X0LN1CJphoskZu7p7sAD3RihxhXrjJhRPE4JcA==
+  dependencies:
+    detect-newline "^4.0.1"
+    string-template "^1.0.0"
+
 "@rnw-community/shared@^0.73.0":
   version "0.73.0"
   resolved "https://registry.npmjs.org/@rnw-community/shared/-/shared-0.73.0.tgz"
@@ -1025,6 +1033,11 @@ deprecation@^2.0.0:
   version "2.3.1"
   resolved "https://registry.npmjs.org/deprecation/-/deprecation-2.3.1.tgz"
   integrity sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==
+
+detect-newline@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-4.0.1.tgz#fcefdb5713e1fb8cb2839b8b6ee22e6716ab8f23"
+  integrity sha512-qE3Veg1YXzGHQhlA6jzebZN2qVf6NX+A7m7qlhCGG30dJixrAQhYOsJjsnBjJkCSmuOPpCk30145fr8FV0bzog==
 
 diff@^4.0.1:
   version "4.0.2"
@@ -3111,6 +3124,11 @@ stdin-discarder@^0.2.1:
   version "0.2.2"
   resolved "https://registry.npmjs.org/stdin-discarder/-/stdin-discarder-0.2.2.tgz"
   integrity sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==
+
+string-template@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/string-template/-/string-template-1.0.0.tgz#9e9f2233dc00f218718ec379a28a5673ecca8b96"
+  integrity sha512-SLqR3GBUXuoPP5MmYtD7ompvXiG87QjT6lzOszyXjTM86Uu7At7vNnt2xgyTLq5o9T4IxTYFyGxcULqpsmsfdg==
 
 string-width@^4.1.0, string-width@^4.2.3:
   version "4.2.3"
