@@ -1,6 +1,6 @@
 {
   "name": "rainbow-swap-sdk",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "An SDK for building applications on top of Rainbow Swap",
   "repository": "https://github.com/0xblackbot/rainbow-swap-sdk.git",
   "license": "Apache-2.0",
