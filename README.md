@@ -69,7 +69,7 @@ if (isActivationRequired) {
 
 ### Live example
 
-For a live example of using the SDK, visit [Rainbow Swap repository](https://github.com/0xblackbot/rainbow-swap).
+For a live example of using the SDK, visit [Rainbow Swap 🌈 repository](https://github.com/0xblackbot/rainbow-swap).
 
 ### Contact
 
