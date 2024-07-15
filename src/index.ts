@@ -2,6 +2,9 @@ export {DexTypeEnum} from './enums/dex-type.enum';
 export {RouteDirectionEnum} from './enums/route-direction.enum';
 export {SwapRouteType} from './enums/swap-route-type.enum';
 
+export type {RouteStep} from './interfaces/route-step.interface';
+export type {RouteStepWithCalculation} from './interfaces/route-step-with-calculation.interface';
+
 export type {Asset} from './types/asset.type';
 export type {CalculatedSwapRoute} from './types/calculated-swap-route.type';
 
