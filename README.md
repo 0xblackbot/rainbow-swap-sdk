@@ -2,7 +2,11 @@
 
 This SDK is designed for building applications on top of [Rainbow Swap 🌈](https://github.com/0xblackbot/rainbow-swap) - The Next Gen DEX Aggregator on the TON blockchain 💎.
 
+--- 
+
 **We have plans to integrate commissions and share them with those who have integrated this SDK into their DApps.**
+
+---
 
 ### Installation
 
@@ -14,7 +18,14 @@ npm install rainbow-swap-sdk
 ### Integrate your dApp
 
 ```typescript
-import {getSwapMessages} from 'rainbow-swap-sdk';
+import {
+    getAssetsRecord,
+    getIsRainbowWalletActive,
+    getBestRoute,
+    getIsActivationRequired,
+    getRainbowWalletActivationMessages,
+    getSwapMessages
+} from 'rainbow-swap-sdk';
 
 // 1. On page load: fetch the list of available tokens
 const assetsRecord = await getAssetsRecord();
@@ -33,7 +44,7 @@ const params = {
   inputAssetAddress: 'ton', // TON
   outputAssetAddress: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs' // USDT jetton master address
 };
-const bestRouteResponse = getBestRoute(params);
+const bestRouteResponse = await getBestRoute(params);
 
 ...
 
