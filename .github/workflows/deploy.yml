@@ -23,6 +23,10 @@ jobs:
 
       - name: Create build
         run: yarn build
+      - name: git config
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
       - name: Publish to npm
         env:
