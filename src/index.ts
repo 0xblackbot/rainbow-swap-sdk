@@ -1,3 +1,5 @@
+export {mapSwapRouteToRoute} from './dexes/shared/calculated-swap-route.utils';
+
 export {DexTypeEnum} from './enums/dex-type.enum';
 export {RouteDirectionEnum} from './enums/route-direction.enum';
 export {SwapRouteType} from './enums/swap-route-type.enum';
