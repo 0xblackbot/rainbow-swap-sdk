@@ -3,9 +3,7 @@ import {AssetsRecord} from '../types/assets-record.type';
 import {BestRouteResponse} from '../types/best-route-response.type';
 
 export const getAssetsRecord = () =>
-    API.get<AssetsRecord>('/assets-record').then(
-        response => response.data
-    );
+    API.get<AssetsRecord>('/assets-record').then(response => response.data);
 
 export const getBestRoute = (params: {
     inputAssetAmount: string;
