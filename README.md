@@ -8,6 +8,9 @@ This SDK is designed for building applications on top of [Rainbow Swap 🌈](htt
 
 ---
 
+[![npm version](https://badge.fury.io/js/rainbow-swap-sdk.svg)](https://badge.fury.io/js/rainbow-swap-sdk)
+![NPM License](https://img.shields.io/npm/l/rainbow-swap-sdk)
+
 ### Installation
 
 To install the rainbow-swap-sdk, use the following npm command:
