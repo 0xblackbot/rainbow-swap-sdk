@@ -17,7 +17,7 @@ export const getIsRainbowWalletActive = async (ownerAddress: string) => {
     return state.state.type === 'active';
 };
 
-export const getIsActivationRequired = async (
+export const getIsActivationRequired = (
     bestRoute: CalculatedSwapRoute[],
     isRainbowWalletActive: boolean
 ) => {
