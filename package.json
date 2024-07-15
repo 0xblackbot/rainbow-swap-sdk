@@ -13,7 +13,7 @@
     "ts": "tsc --pretty",
     "lint": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
     "build": "tsc",
-    "release": "yarn build && release-it"
+    "release": "release-it"
   },
   "dependencies": {
     "@rnw-community/shared": "^0.73.0",
@@ -23,9 +23,9 @@
     "buffer": "^6.0.3"
   },
   "devDependencies": {
-    "@release-it/keep-a-changelog": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
     "@typescript-eslint/parser": "^7.16.0",
+    "auto-changelog": "^2.4.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
