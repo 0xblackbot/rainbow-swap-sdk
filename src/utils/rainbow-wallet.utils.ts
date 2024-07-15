@@ -18,19 +18,12 @@ export const getIsRainbowWalletActive = async (ownerAddress: string) => {
 };
 
 export const getIsActivationRequired = async (
-    senderAddress: string,
-    bestRoute: CalculatedSwapRoute[]
+    bestRoute: CalculatedSwapRoute[],
+    isRainbowWalletActive: boolean
 ) => {
     const isRainbowContractCalled = bestRoute.some(
         swapRoute => swapRoute.type === SwapRouteType.Rainbow
     );
 
-    if (isRainbowContractCalled) {
-        const isRainbowWalletActive =
-            await getIsRainbowWalletActive(senderAddress);
-
-        return !isRainbowWalletActive;
-    } else {
-        return false;
-    }
+    return isRainbowContractCalled && !isRainbowWalletActive;
 };
