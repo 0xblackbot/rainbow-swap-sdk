@@ -13,7 +13,7 @@
     "ts": "tsc --pretty",
     "lint": "eslint . --ext ts --report-unused-disable-directives --max-warnings 0",
     "build": "tsc",
-    "release": "release-it minor"
+    "release": "release-it patch"
   },
   "dependencies": {
     "@rnw-community/shared": "^0.73.0",
