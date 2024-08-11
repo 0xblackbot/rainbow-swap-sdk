@@ -23,10 +23,7 @@ npm install rainbow-swap-sdk
 ```typescript
 import {
     getAssetsRecord,
-    getIsRainbowWalletActive,
     getBestRoute,
-    getIsActivationRequired,
-    getRainbowWalletActivationMessages,
     getSwapMessages
 } from 'rainbow-swap-sdk';
 
@@ -35,13 +32,7 @@ const assetsRecord = await getAssetsRecord();
 
 ...
 
-// 2. On wallet connection: check if `Rainbow Wallet` smart contract is active
-const userAddress = 'UQDGGjjuwhikx8ZPJsrLbKXGq7mx26D8pK_l8GqBejzB52Pa'; // user wallet address
-const isRainbowWalletActive = await getIsRainbowWalletActive(userAddress);
-
-...
-
-// 3. On input asset amount, input asset, or output asset change: fetch a new swap route
+// 2. On input asset amount, input asset, or output asset change: fetch a new swap route
 const params = {
   inputAssetAmount: '1000000000', // 1 TON in nano
   inputAssetAddress: 'ton', // TON
@@ -51,23 +42,15 @@ const bestRouteResponse = await getBestRoute(params);
 
 ...
 
-// 4. Generate sign request messages
+// 3. Generate sign request messages & send it via @tonconnect
+const userAddress = 'UQDGGjjuwhikx8ZPJsrLbKXGq7mx26D8pK_l8GqBejzB52Pa'; // user wallet address
+const slippageTolerance = '2.5'; // 2.5%
 
-// Check if `Rainbow Wallet` Smart Contract Activation is Required
-const isActivationRequired = getIsActivationRequired(bestRouteResponse.bestRoute, isRainbowWalletActive);
-
-if (isActivationRequired) {
-    // If activation is required, the user needs to sign rainbowWalletActivationMessages first
-    const activationMessages = getRainbowWalletActivationMessages(userAddress);
-} else {
-    // After the transaction is confirmed, or if activation is not required, the user can proceed with the swap transaction
-    const slippageTolerance = '2.5'; // 2.5%
-    const swapMessages = await getSwapMessages(
-      userAddress,
-      bestRouteResponse.bestRoute,
-      slippageTolerance
-    );
-}
+const swapMessages = await getSwapMessages(
+    userAddress,
+    bestRouteResponse.bestRoute,
+    slippageTolerance
+);
 ```
 
 ### Live example
