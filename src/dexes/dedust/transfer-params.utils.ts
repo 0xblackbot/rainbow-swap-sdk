@@ -13,7 +13,7 @@ import {applySlippageTolerance} from '../shared/slippage-tolerance.utils';
 
 const createNextSwapStepPayload = (
     remainingRoute: RouteStepWithCalculation[],
-    slippageTolerance: string
+    slippageTolerance: number
 ): SwapStep | undefined => {
     if (remainingRoute.length === 0) {
         return undefined;
@@ -46,7 +46,7 @@ export const dedust_getTransferParams = async (
     senderAddress: Address,
     receiverAddress: Address,
     responseDestination: Address,
-    slippageTolerance: string
+    slippageTolerance: number
 ) => {
     if (route.length === 0) {
         throw new Error('Empty route');

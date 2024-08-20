@@ -64,7 +64,7 @@ export const getDexTransferParams = (
     senderAddress: Address,
     receiverAddress: Address,
     responseDestination: Address,
-    slippageTolerance: string
+    slippageTolerance: number
 ) => {
     const dexType = route[0].dexType;
 

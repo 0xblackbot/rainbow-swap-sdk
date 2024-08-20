@@ -25,7 +25,7 @@ export const rainbow_getTransferParams = async (
     queryId: number,
     gasAmount: bigint,
     senderAddress: Address,
-    slippageTolerance: string
+    slippageTolerance: number
 ): Promise<TransferParams> => {
     const rainbowWallet = RainbowWalletContract.create({
         workchain: WORKCHAIN,
@@ -71,7 +71,7 @@ export const rainbow_getTransferParams = async (
     const tweakedSlippageTolerance =
         firstChunk[0].dexType === DexTypeEnum.Ston &&
         firstChunk[0].inputAssetAmount !== TON
-            ? '100' // We could not handle Ston.fi returned jettons
+            ? 100 // We could not handle Ston.fi returned jettons
             : slippageTolerance;
 
     const firstChunk_transferParams = await getDexTransferParams(

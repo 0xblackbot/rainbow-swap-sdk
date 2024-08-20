@@ -44,7 +44,7 @@ const bestRouteResponse = await getBestRoute(params);
 
 // 3. Generate sign request messages & send it via @tonconnect
 const userAddress = 'UQDGGjjuwhikx8ZPJsrLbKXGq7mx26D8pK_l8GqBejzB52Pa'; // user wallet address
-const slippageTolerance = '2.5'; // 2.5%
+const slippageTolerance = 2.5; // 2.5%
 
 const swapMessages = await getSwapMessages(
     userAddress,

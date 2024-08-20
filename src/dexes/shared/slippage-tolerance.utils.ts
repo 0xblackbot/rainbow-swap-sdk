@@ -1,17 +1,12 @@
+const PRECISION = 10 ** 6;
+
 export const applySlippageTolerance = (
     amount: string,
-    slippageTolerance: string
+    slippageTolerance: number
 ) => {
-    const decimals = slippageTolerance.split('.')[1]?.length || 0;
-    const multiplier = BigInt(10 ** decimals);
+    const amountBigInt = BigInt(amount);
 
-    return (
-        (BigInt(amount) *
-            BigInt(
-                Math.floor(
-                    (100 - parseFloat(slippageTolerance)) * Number(multiplier)
-                )
-            )) /
-        (BigInt(100) * multiplier)
-    );
+    const slippageAmount = amountBigInt * BigInt(Math.ceil(slippageTolerance * PRECISION)) / BigInt(100 * PRECISION);
+
+    return amountBigInt - slippageAmount;
 };

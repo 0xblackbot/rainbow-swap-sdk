@@ -28,7 +28,7 @@ const transferParamsToMessages = (transferParamsArray: TransferParams[]) =>
 export const getSwapMessages = async (
     senderAddress: string,
     bestRoute: CalculatedSwapRoute[],
-    slippageTolerance: string
+    slippageTolerance: number
 ) => {
     const swapTransferParams = await Promise.all(
         bestRoute.map(swapRoute =>

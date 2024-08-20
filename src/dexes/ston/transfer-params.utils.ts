@@ -17,7 +17,7 @@ export const ston_getTransferParams = async (
     senderAddress: Address,
     receiverAddress: Address,
     responseDestination: Address,
-    slippageTolerance: string
+    slippageTolerance: number
 ) => {
     const minOutputAmount = applySlippageTolerance(
         routeStep.outputAssetAmount,

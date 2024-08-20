@@ -13,7 +13,7 @@ import {ston_getTransferParams} from '../ston/transfer-params.utils';
 export const getSwapRouteTransferParams = (
     swapRoute: CalculatedSwapRoute,
     senderAddress: Address,
-    slippageTolerance: string
+    slippageTolerance: number
 ) => {
     const queryId = getQueryId();
     if (swapRoute.type === SwapRouteType.DeDust) {
