@@ -6,7 +6,9 @@ export const applySlippageTolerance = (
 ) => {
     const amountBigInt = BigInt(amount);
 
-    const slippageAmount = amountBigInt * BigInt(Math.ceil(slippageTolerance * PRECISION)) / BigInt(100 * PRECISION);
+    const slippageAmount =
+        (amountBigInt * BigInt(Math.ceil(slippageTolerance * PRECISION))) /
+        BigInt(100 * PRECISION);
 
     return amountBigInt - slippageAmount;
 };
