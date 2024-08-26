@@ -5,4 +5,5 @@ export type Asset = {
     image: string;
     decimals: number;
     exchangeRate: string;
+    verification: 'whitelist' | 'none';
 };
