@@ -1,4 +1,5 @@
 import {API} from '../globals';
+import {AppStatus} from '../types/app-status.type';
 import {AssetsRecord} from '../types/assets-record.type';
 import {BestRouteResponse} from '../types/best-route-response.type';
 
@@ -13,3 +14,6 @@ export const getBestRoute = (params: {
     API.get<BestRouteResponse>('/best-route', {params}).then(
         response => response.data
     );
+
+export const getAppStatus = () =>
+    API.get<AppStatus>('/app-status').then(response => response.data);

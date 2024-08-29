@@ -53,6 +53,19 @@ const swapMessages = await getSwapMessages(
 );
 ```
 
+### Application status check
+
+Additionally, you might want to check if everything is functioning correctly. For instance, you could temporarily disable swaps if block production on TON is disrupted due to the DOGS listing.
+
+```typescript
+import { getAppStatus } from 'rainbow-swap-sdk';
+
+const {
+    isSwapsEnabled, // true - if everything works fine
+    message // explanations why swaps are disabled
+} = await getAppStatus();
+```
+
 ### Live example
 
 For a live example of using the SDK, visit [Rainbow Swap 🌈 repository](https://github.com/0xblackbot/rainbow-swap).
