@@ -3,7 +3,7 @@ import {Address} from '@ton/core';
 import {SwapParams, SwapStep} from './sdk';
 import {packJettonSwap, packTonSwap} from './transfer-params-pack.utils';
 import {dedust_getVaultAddress} from './vault.utils';
-import {JETTON_TRANSFER_GAS_AMOUNT, TON} from '../../globals';
+import {JETTON_TRANSFER_GAS_AMOUNT, REFERRAL_ADDRESS, TON} from '../../globals';
 import {RouteStepWithCalculation} from '../../interfaces/route-step-with-calculation.interface';
 import {
     getJettonTransferBody,
@@ -68,7 +68,10 @@ export const dedust_getTransferParams = async (
         route.slice(1),
         slippageTolerance
     );
-    const swapParams: SwapParams = {recipientAddress: receiverAddress};
+    const swapParams: SwapParams = {
+        recipientAddress: receiverAddress,
+        referralAddress: REFERRAL_ADDRESS
+    };
 
     if (firstRouteStep.inputAssetAddress === TON) {
         return {
