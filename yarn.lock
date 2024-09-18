@@ -275,10 +275,10 @@
   dependencies:
     defer-to-connect "^2.0.1"
 
-"@ton/core@^0.57.0":
-  version "0.57.0"
-  resolved "https://registry.yarnpkg.com/@ton/core/-/core-0.57.0.tgz#fdf2d32848a3d1135b890e9a5bd8295e958a4a81"
-  integrity sha512-UOehEXEV5yqi+17qmmWdD01YfVgQlYtitSm5OfN/WMg6PAMkt+Uf91JRC4mdPNtkKDhyKuujJuhYs6QiOsHPfw==
+"@ton/core@^0.58.1":
+  version "0.58.1"
+  resolved "https://registry.yarnpkg.com/@ton/core/-/core-0.58.1.tgz#f6f2ecef6a7149bcd23825bfbb454f116d54363f"
+  integrity sha512-zydh42iT6E3U3Ky/DhTFqJMN/ycKKzbsHASY257Qr2sZn97G/MOcHFizPfMnbJJgx0H9iHX6mdyMvp1IKBVAFA==
   dependencies:
     symbol.inspect "1.0.1"
 
@@ -630,10 +630,10 @@ axios@^1.6.7:
     form-data "^4.0.0"
     proxy-from-env "^1.1.0"
 
-axios@^1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.3.tgz#a1125f2faf702bc8e8f2104ec3a76fab40257d85"
-  integrity sha512-Ar7ND9pU99eJ9GpoGQKhKf58GpUOgnzuaB7ueNQ5BMi0p+LZ5oaEnfF999fAArcTIBwXTCHAmGcHOZJaWPq9Nw==
+axios@^1.7.7:
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.7.tgz#2f554296f9892a72ac8d8e4c5b79c14a91d0a47f"
+  integrity sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==
   dependencies:
     follow-redirects "^1.15.6"
     form-data "^4.0.0"

@@ -1,6 +1,6 @@
 {
   "name": "rainbow-swap-sdk",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "SDK for building applications on top of Rainbow Swap 🌈 - The Next Gen DEX Aggregator on TON 💎.",
   "repository": "https://github.com/0xblackbot/rainbow-swap-sdk.git",
   "license": "Apache-2.0",
@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@rnw-community/shared": "^0.74.0",
-    "@ton/core": "^0.57.0",
+    "@ton/core": "^0.58.1",
     "@ton/crypto": "^3.3.0",
     "@ton/ton": "^15.0.0",
-    "axios": "^1.7.3",
+    "axios": "^1.7.7",
     "buffer": "^6.0.3"
   },
   "devDependencies": {

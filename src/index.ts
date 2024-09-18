@@ -4,6 +4,7 @@ export {DexTypeEnum} from './enums/dex-type.enum';
 export {RouteDirectionEnum} from './enums/route-direction.enum';
 export {SwapRouteType} from './enums/swap-route-type.enum';
 
+export type {Message} from './interfaces/message.interface';
 export type {RouteStep} from './interfaces/route-step.interface';
 export type {RouteStepWithCalculation} from './interfaces/route-step-with-calculation.interface';
 
