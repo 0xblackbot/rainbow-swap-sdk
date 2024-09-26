@@ -19,3 +19,4 @@ export const JETTON_TRANSFER_GAS_AMOUNT = toNano('0.065');
 export const REFERRAL_ADDRESS = Address.parse(
     'UQBBPVrn4Y6F0Fci4j0mXuSAXmRDeE-nZCRIInQsNC9__8vG'
 );
+export const REFERRAL_VALUE = 0n;

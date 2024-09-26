@@ -21,7 +21,7 @@ const createNextSwapStepPayload = (
 
     const routeStep = remainingRoute[0];
 
-    const poolAddress = Address.parse(routeStep.dexPairAddress);
+    const poolAddress = Address.parse(routeStep.dexPair.dexPairAddress);
     const limit = applySlippageTolerance(
         routeStep.outputAssetAmount,
         slippageTolerance
@@ -58,7 +58,7 @@ export const dedust_getTransferParams = async (
         firstRouteStep.inputAssetAddress
     );
 
-    const poolAddress = Address.parse(firstRouteStep.dexPairAddress);
+    const poolAddress = Address.parse(firstRouteStep.dexPair.dexPairAddress);
     const minOutputAmount = applySlippageTolerance(
         firstRouteStep.outputAssetAmount,
         slippageTolerance

@@ -1,9 +1,8 @@
-import {DexTypeEnum} from '../enums/dex-type.enum';
 import {RouteDirectionEnum} from '../enums/route-direction.enum';
+import {DexPair} from '../types/dex-pair.type';
 
 export interface RouteStep {
-    dexType: DexTypeEnum;
-    dexPairAddress: string;
+    dexPair: DexPair;
     inputAssetAddress: string;
     outputAssetAddress: string;
     routeDirection: RouteDirectionEnum;

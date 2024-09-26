@@ -45,14 +45,14 @@ export const rainbow_getTransferParams = async (
     );
 
     const jettonSenderAddressToListen =
-        firstChunk[0].dexType === DexTypeEnum.Ston
+        firstChunk[0].dexPair.dexType === DexTypeEnum.Ston
             ? STON_ROUTER_ADDRESS
             : await dedust_getVaultAddress(
                   firstChunk[firstChunk.length - 1].outputAssetAddress
               );
 
     const jettonReceiveEffectType =
-        secondChunk[0].dexType === DexTypeEnum.DeDust &&
+        secondChunk[0].dexPair.dexType === DexTypeEnum.DeDust &&
         secondChunk[0].inputAssetAddress === TON
             ? EffectType.DedustTonSwap
             : EffectType.JettonTransfer;
@@ -69,7 +69,7 @@ export const rainbow_getTransferParams = async (
     });
 
     const tweakedSlippageTolerance =
-        firstChunk[0].dexType === DexTypeEnum.Ston &&
+        firstChunk[0].dexPair.dexType === DexTypeEnum.Ston &&
         firstChunk[0].inputAssetAmount !== TON
             ? 100 // We could not handle Ston.fi returned jettons
             : slippageTolerance;

@@ -9,6 +9,7 @@ import {dedust_getTransferParams} from '../dedust/transfer-params.utils';
 import {RainbowWalletContract} from '../rainbow/rainbow-wallet.contract';
 import {rainbow_getTransferParams} from '../rainbow/transfer-params.utils';
 import {ston_getTransferParams} from '../ston/transfer-params.utils';
+import {stonV2_getTransferParams} from '../ston-v2/transfer-params.utils';
 
 export const getSwapRouteTransferParams = (
     swapRoute: CalculatedSwapRoute,
@@ -30,6 +31,17 @@ export const getSwapRouteTransferParams = (
     if (swapRoute.type === SwapRouteType.Ston) {
         return ston_getTransferParams(
             swapRoute.routeStep,
+            queryId,
+            GAS_AMOUNT,
+            senderAddress,
+            senderAddress,
+            senderAddress,
+            slippageTolerance
+        );
+    }
+    if (swapRoute.type === SwapRouteType.Ston_v2) {
+        return stonV2_getTransferParams(
+            swapRoute.route,
             queryId,
             GAS_AMOUNT,
             senderAddress,

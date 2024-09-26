@@ -66,7 +66,7 @@ export const getDexTransferParams = (
     responseDestination: Address,
     slippageTolerance: number
 ) => {
-    const dexType = route[0].dexType;
+    const dexType = route[0].dexPair.dexType;
 
     if (dexType === DexTypeEnum.DeDust) {
         return dedust_getTransferParams(
