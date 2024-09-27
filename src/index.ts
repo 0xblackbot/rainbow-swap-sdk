@@ -23,3 +23,4 @@ export {
     getIsRainbowWalletActive,
     getIsActivationRequired
 } from './utils/rainbow-wallet.utils';
+export {getQueryId} from './utils/transfer-params.utils';
