@@ -1,8 +1,8 @@
-import {Address} from '@ton/core';
+import {isDefined} from '@rnw-community/shared';
+import {Address, toNano} from '@ton/core';
 
 import {PROXY_TON_V2_MASTER_ADDRESS, pTonV2_createTonTransferBody} from './sdk';
-import {packSwapParams} from './transfer-params-pack.utils';
-import {DexTypeEnum} from '../../enums/dex-type.enum';
+import {getRouterAddress, packSwapParams} from './transfer-params-pack.utils';
 import {
     JETTON_TRANSFER_GAS_AMOUNT,
     REFERRAL_ADDRESS,
@@ -14,7 +14,8 @@ import {
     getJettonTransferBody,
     getJettonWalletAddress
 } from '../../utils/jetton.utils';
-import {applySlippageTolerance} from '../shared/slippage-tolerance.utils';
+
+const ROUTE_STEP_GAS_AMOUNT = toNano('0.30');
 
 export const stonV2_getTransferParams = async (
     route: RouteStepWithCalculation[],
@@ -25,86 +26,65 @@ export const stonV2_getTransferParams = async (
     responseDestination: Address,
     slippageTolerance: number
 ) => {
-    if (route.length !== 1) {
-        throw new Error('Only 1 step route is supported rn');
+    if (route.length === 0) {
+        throw new Error('Empty route');
     }
 
-    const routeStep = route[0];
+    const firstRouteStep = route[0];
 
-    if (routeStep.dexPair.dexType !== DexTypeEnum.Ston_v2) {
-        throw new Error(
-            `Unsupported dexType ${routeStep.dexPair.dexType}, ${DexTypeEnum.Ston_v2} expected`
-        );
-    }
+    const routerAddress = getRouterAddress(firstRouteStep);
+    const additionalGasAmount =
+        ROUTE_STEP_GAS_AMOUNT * BigInt(route.length - 1);
 
-    const routerAddress = Address.parse(routeStep.dexPair.routerAddress);
-    const minOutputAmount = applySlippageTolerance(
-        routeStep.outputAssetAmount,
+    const swapPayload = await packSwapParams(
+        route,
+        ROUTE_STEP_GAS_AMOUNT,
+        receiverAddress,
+        responseDestination,
+        REFERRAL_ADDRESS,
+        REFERRAL_VALUE,
         slippageTolerance
     );
 
-    if (routeStep.inputAssetAddress === TON) {
+    if (!isDefined(swapPayload)) {
+        throw new Error('swapPayload not defined');
+    }
+
+    if (firstRouteStep.inputAssetAddress === TON) {
         const stonRouterProxyTonWalletAddress = await getJettonWalletAddress(
             PROXY_TON_V2_MASTER_ADDRESS,
             routerAddress
         );
 
-        const stonRouterOutputJettonWalletAddress =
-            await getJettonWalletAddress(
-                routeStep.outputAssetAddress,
-                routerAddress
-            );
-
-        const tonSwapPayload = packSwapParams({
-            outputJettonWalletAddress: stonRouterOutputJettonWalletAddress,
-            receiverAddress,
-            minOutputAmount,
-            refundAddress: responseDestination,
-            referralAddress: REFERRAL_ADDRESS,
-            referralValue: REFERRAL_VALUE
-        });
-
         return {
             to: stonRouterProxyTonWalletAddress,
-            value: gasAmount + BigInt(routeStep.inputAssetAmount),
+            value:
+                gasAmount +
+                additionalGasAmount +
+                BigInt(firstRouteStep.inputAssetAmount),
             body: pTonV2_createTonTransferBody({
                 queryId,
-                amount: BigInt(routeStep.inputAssetAmount),
+                amount: BigInt(firstRouteStep.inputAssetAmount),
                 refundAddress: responseDestination,
-                forwardPayload: tonSwapPayload
+                forwardPayload: swapPayload
             })
         };
     } else {
         const inputJettonWalletAddress = await getJettonWalletAddress(
-            routeStep.inputAssetAddress,
+            firstRouteStep.inputAssetAddress,
             senderAddress
         );
-        const outputJettonWalletAddress = await getJettonWalletAddress(
-            routeStep.outputAssetAddress === TON
-                ? PROXY_TON_V2_MASTER_ADDRESS
-                : routeStep.outputAssetAddress,
-            routerAddress
-        );
-
-        const jettonSwapPayload = packSwapParams({
-            outputJettonWalletAddress,
-            receiverAddress,
-            minOutputAmount,
-            refundAddress: responseDestination,
-            referralAddress: REFERRAL_ADDRESS,
-            referralValue: REFERRAL_VALUE
-        });
 
         return {
             to: inputJettonWalletAddress,
-            value: gasAmount + JETTON_TRANSFER_GAS_AMOUNT,
+            value: gasAmount + JETTON_TRANSFER_GAS_AMOUNT + additionalGasAmount,
             body: getJettonTransferBody({
                 queryId,
-                amount: BigInt(routeStep.inputAssetAmount),
+                amount: BigInt(firstRouteStep.inputAssetAmount),
                 destination: routerAddress,
                 responseDestination: responseDestination,
-                forwardTonAmount: gasAmount,
-                forwardPayload: jettonSwapPayload
+                forwardTonAmount: gasAmount + additionalGasAmount,
+                forwardPayload: swapPayload
             })
         };
     }
