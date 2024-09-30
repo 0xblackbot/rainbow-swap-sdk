@@ -11,6 +11,8 @@ export const getBestRoute = (params: {
     inputAssetAddress: string;
     outputAssetAddress: string;
     maxDepth?: number;
+    senderAddress?: string;
+    maxSlippage?: number;
 }) =>
     API.get<BestRouteResponse>('/best-route', {params}).then(
         response => response.data

@@ -70,7 +70,7 @@ export const rainbow_getTransferParams = async (
 
     const tweakedSlippageTolerance =
         firstChunk[0].dexPair.dexType === DexTypeEnum.Ston &&
-        firstChunk[0].inputAssetAmount !== TON
+        firstChunk[0].inputAssetAddress !== TON
             ? 100 // We could not handle Ston.fi returned jettons
             : slippageTolerance;
 

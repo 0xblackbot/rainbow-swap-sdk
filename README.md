@@ -23,34 +23,28 @@ npm install rainbow-swap-sdk
 ```typescript
 import {
     getAssetsRecord,
-    getBestRoute,
-    getSwapMessages
+    getBestRoute
 } from 'rainbow-swap-sdk';
 
-// 1. On page load: fetch the list of available tokens
+// 1. Load the list of available tokens
 const assetsRecord = await getAssetsRecord();
 
 ...
 
-// 2. On input asset amount, input asset, or output asset change: fetch a new swap route
+// 2. Load the best swap route & swap messages
 const params = {
   inputAssetAmount: '1000000000', // 1 TON in nano
   inputAssetAddress: 'ton', // TON
-  outputAssetAddress: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs' // USDT jetton master address
+  outputAssetAddress: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs', // USDT jetton master address
+  maxDepth: 2, // optional number of maximum route length (should be in range from 1 to 3)
+  userAddress: 'UQDGGjjuwhikx8ZPJsrLbKXGq7mx26D8pK_l8GqBejzB52Pa', // optional user wallet address, if set - swapMessages will return
+  slippageTolerance: 5 // optional max slippage value (should be in range )
 };
+
 const bestRouteResponse = await getBestRoute(params);
 
-...
-
-// 3. Generate sign request messages & send it via @tonconnect
-const userAddress = 'UQDGGjjuwhikx8ZPJsrLbKXGq7mx26D8pK_l8GqBejzB52Pa'; // user wallet address
-const slippageTolerance = 2.5; // 2.5%
-
-const swapMessages = await getSwapMessages(
-    userAddress,
-    bestRouteResponse.bestRoute,
-    slippageTolerance
-);
+const bestRoute = bestRouteResponse.bestRoute; // Route of the best possible swap route
+const swapMessages = bestRouteResponse.swapMessages; // Array of messages that should be sent to @tonconnect
 ```
 
 ### Application status check
