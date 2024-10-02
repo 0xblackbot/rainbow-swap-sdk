@@ -1,11 +1,11 @@
 export type Asset = {
+    address: string;
+    slug: string;
     symbol: string;
     name: string;
-    address: string;
     image: string;
     decimals: number;
-    // asset to TON exchange rate
-    exchangeRate: string;
+    exchangeRate: string; // asset to TON exchange rate
     usdExchangeRate: number;
     verification: 'whitelist' | 'none';
 };
