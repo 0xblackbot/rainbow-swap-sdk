@@ -1,6 +1,6 @@
 {
   "name": "rainbow-swap-sdk",
-  "version": "1.3.5",
+  "version": "1.3.6",
   "description": "SDK for building applications on top of Rainbow Swap 🌈 - The Next Gen DEX Aggregator on TON 💎.",
   "repository": "https://github.com/0xblackbot/rainbow-swap-sdk.git",
   "license": "Apache-2.0",
