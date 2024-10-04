@@ -4,5 +4,6 @@ import {Message} from '../interfaces/message.interface';
 export type BestRouteResponse = {
     bestRoute: CalculatedSwapRoute[];
     priceImprovement: number;
+    routingFee: number;
     swapMessages: Message[];
 };
