@@ -16,12 +16,4 @@ export type {BestRouteResponse} from './types/best-route-response.type';
 export type {CalculatedSwapRoute} from './types/calculated-swap-route.type';
 
 export {getAssetsRecord, getBestRoute, getAppStatus} from './utils/api.utils';
-export {
-    getSwapMessages,
-    getRainbowWalletActivationMessages
-} from './utils/message.utils';
-export {
-    getIsRainbowWalletActive,
-    getIsActivationRequired
-} from './utils/rainbow-wallet.utils';
 export {getQueryId} from './utils/transfer-params.utils';
