@@ -13,6 +13,6 @@ export type BestRouteResponse = {
         maxSlippage: number;
         routingFee: number;
         priceImprovement: number;
-    }
+    };
     swapMessages: Message[];
 };
