@@ -11,8 +11,8 @@ export type BestRouteResponse = {
         minOutputAssetAmount: number;
         exchangeRate: number;
         maxSlippage: number;
-        routingFee: number;
-        priceImprovement: number;
+        routingFeePercent: number;
+        priceImprovementPercent: number;
     };
     swapMessages: Message[];
 };
