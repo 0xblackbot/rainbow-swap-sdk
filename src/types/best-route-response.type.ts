@@ -3,7 +3,16 @@ import {Message} from '../interfaces/message.interface';
 
 export type BestRouteResponse = {
     bestRoute: CalculatedSwapRoute[];
-    priceImprovement: number;
-    routingFee: number;
+    displayData: {
+        inputAssetAmount: number;
+        inputAssetUsdAmount: number;
+        outputAssetAmount: number;
+        outputAssetUsdAmount: number;
+        minOutputAssetAmount: number;
+        exchangeRate: number;
+        maxSlippage: number;
+        routingFee: number;
+        priceImprovement: number;
+    }
     swapMessages: Message[];
 };
