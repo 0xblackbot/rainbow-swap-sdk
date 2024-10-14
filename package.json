@@ -1,6 +1,6 @@
 {
   "name": "rainbow-swap-sdk",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "SDK for building applications on top of Rainbow Swap - Swap Aggregator on TON 💎.",
   "repository": "https://github.com/0xblackbot/rainbow-swap-sdk.git",
   "license": "Apache-2.0",
