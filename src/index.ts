@@ -16,4 +16,5 @@ export type {BestRouteResponse} from './types/best-route-response.type';
 export type {CalculatedSwapRoute} from './types/calculated-swap-route.type';
 
 export {getAssetsRecord, getBestRoute, getAppStatus} from './utils/api.utils';
+export {toNano, fromNano} from './utils/big-int.utils';
 export {getQueryId} from './utils/transfer-params.utils';
