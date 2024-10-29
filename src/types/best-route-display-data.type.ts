@@ -8,4 +8,6 @@ export type BestRouteDisplayData = {
     maxSlippage: number;
     routingFeePercent: number;
     priceImprovementPercent: number;
+    roughGasFee: number;
+    roughGasUsdFee: number;
 };
