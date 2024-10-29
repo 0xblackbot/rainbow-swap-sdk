@@ -10,11 +10,17 @@ export type {RouteStepWithCalculation} from './interfaces/route-step-with-calcul
 
 export type {AppStatus} from './types/app-status.type';
 export type {Asset} from './types/asset.type';
+export type {AssetsListParams} from './types/assets-list-patams.type';
 export type {AssetsRecord} from './types/assets-record.type';
 export type {BestRouteParams} from './types/best-route-params.type';
 export type {BestRouteResponse} from './types/best-route-response.type';
 export type {CalculatedSwapRoute} from './types/calculated-swap-route.type';
 
-export {getAssetsRecord, getBestRoute, getAppStatus} from './utils/api.utils';
+export {
+    getAssetsRecord,
+    getAssetsList,
+    getBestRoute,
+    getAppStatus
+} from './utils/api.utils';
 export {toNano, fromNano} from './utils/big-int.utils';
 export {getQueryId} from './utils/transfer-params.utils';

@@ -30,13 +30,16 @@ yarn add rainbow-swap-sdk
 ### Example: Swapping 1.35 TON to USDT
 
 ```typescript
-import {getAssetsRecord, getBestRoute, toNano} from 'rainbow-swap-sdk';
+import {getAssetsList, getBestRoute, toNano} from 'rainbow-swap-sdk';
 
 // 1. Load the list of available tokens
-const assetsRecord = await getAssetsRecord();
+const assetsList = await getAssetsList({
+    userAssets: [] // Array of asset addresses the user holds; see AssetsListParams for more details.
+});
 
-const inputAsset = assetsRecord['ton']; // TON asset
-const outputAsset = assetsRecord['EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs']; // USDT asset
+// Retrieve specific assets by their address
+const inputAsset = assetsList.find(asset => asset.address === 'ton');
+const outputAsset = assetsList.find(asset => asset.address === 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs');
 
 // 2. Load the best swap route and swap messages
 const bestRouteResponse = await getBestRoute({
