@@ -22,4 +22,5 @@ export type BestRouteResponse = {
      * taking into account swap distribution and gas costs.
      */
     bestRoute: CalculatedSwapRoute[];
+    messageCount: number;
 };
