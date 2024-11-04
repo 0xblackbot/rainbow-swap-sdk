@@ -12,6 +12,11 @@ export type {AppStatus} from './types/app-status.type';
 export type {Asset} from './types/asset.type';
 export type {AssetsListParams} from './types/assets-list-patams.type';
 export type {AssetsRecord} from './types/assets-record.type';
+export type {
+    BestRouteDisplayData,
+    RouteDisplayData,
+    RouteStepDisplayData
+} from './types/best-route-display-data.type';
 export type {BestRouteParams} from './types/best-route-params.type';
 export type {BestRouteResponse} from './types/best-route-response.type';
 export type {CalculatedSwapRoute} from './types/calculated-swap-route.type';
