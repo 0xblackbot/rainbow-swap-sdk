@@ -22,5 +22,10 @@ export type BestRouteResponse = {
      * taking into account swap distribution and gas costs.
      */
     bestRoute: CalculatedSwapRoute[];
+
+    /**
+     * @deprecated This field is deprecated and will be removed in the next major release.
+     * Please use `displayData.route` instead for improved performance and features.
+     */
     messageCount: number;
 };
