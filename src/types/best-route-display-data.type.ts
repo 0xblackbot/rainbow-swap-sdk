@@ -12,7 +12,7 @@ export type BestRouteDisplayData = {
     priceImprovementPercent: number;
     roughGasFee: number;
     roughGasUsdFee: number;
-    route: {
+    routes: {
         inputPercent: number;
         routeSteps: {
             dex: {
