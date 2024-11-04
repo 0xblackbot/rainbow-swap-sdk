@@ -1,3 +1,5 @@
+import {GenericAbortSignal} from 'axios';
+
 import {API} from '../globals';
 import {AppStatus} from '../types/app-status.type';
 import {Asset} from '../types/asset.type';
@@ -12,8 +14,11 @@ export const getAssetsRecord = () =>
 export const getAssetsList = (params: AssetsListParams) =>
     API.post<Asset[]>('/assets-list', params).then(response => response.data);
 
-export const getBestRoute = (params: BestRouteParams) =>
-    API.get<BestRouteResponse>('/best-route', {params}).then(
+export const getBestRoute = (
+    params: BestRouteParams,
+    signal?: GenericAbortSignal
+) =>
+    API.get<BestRouteResponse>('/best-route', {params, signal}).then(
         response => response.data
     );
 
