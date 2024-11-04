@@ -18,14 +18,10 @@ export type BestRouteResponse = {
     swapMessages: Message[];
 
     /**
-     * Detailed information about the most efficient routes for swapping the user's input asset,
-     * taking into account swap distribution and gas costs.
-     */
-    bestRoute: CalculatedSwapRoute[];
-
-    /**
      * @deprecated This field is deprecated and will be removed in the next major release.
      * Please use `displayData.route` instead for improved performance and features.
      */
+    bestRoute: CalculatedSwapRoute[];
+
     messageCount: number;
 };
