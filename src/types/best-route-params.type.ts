@@ -34,6 +34,14 @@ export type BestRouteParams = {
     maxDepth?: number;
 
     /**
+     * (Optional) The maximum splits of the route.
+     * Should be a number between **1 and 4** (inclusive).
+     *
+     * **Default:** `4`
+     */
+    maxSplits?: number;
+
+    /**
      * (Optional) The wallet address of the user.
      * If not provided, the `swapMessages` will return an empty array (`[]`).
      */
