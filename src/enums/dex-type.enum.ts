@@ -3,5 +3,6 @@ export enum DexTypeEnum {
     DeDustStable = 'DeDustStable',
     Ston = 'Ston',
     Ston_v2 = 'Ston_v2',
+    StonStable = 'StonStable',
     CattonStable = 'CattonStable'
 }
