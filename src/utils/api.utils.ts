@@ -36,7 +36,7 @@ export const getAssetsList = (params: AssetsListParams) => {
     }).then(response => response.data);
 };
 
-export const getBestRoute = (params: BestRouteParams) => {
+export const getBestRoute = (params: BestRouteParams, authTokens?: string) => {
     if (abortControllers.bestRoute) {
         abortControllers.bestRoute.abort();
     }
@@ -44,6 +44,9 @@ export const getBestRoute = (params: BestRouteParams) => {
 
     return API.get<BestRouteResponse>('/best-route', {
         params,
-        signal: abortControllers.bestRoute.signal
+        signal: abortControllers.bestRoute.signal,
+        headers: {
+            Authorization: authTokens
+        }
     }).then(response => response.data);
 };
