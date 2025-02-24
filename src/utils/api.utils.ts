@@ -1,10 +1,12 @@
 import {API} from '../globals';
+import {SwapHistoryData} from '../interfaces/swap-history-data.interface';
 import {AppStatus} from '../types/app-status.type';
 import {Asset} from '../types/asset.type';
 import {AssetsListParams} from '../types/assets-list-patams.type';
 import {AssetsRecord} from '../types/assets-record.type';
 import {BestRouteParams} from '../types/best-route-params.type';
 import {BestRouteResponse} from '../types/best-route-response.type';
+import {SwapHistoryDataParams} from '../types/swap-history-data.type';
 
 export const getAppStatus = () =>
     API.get<AppStatus>('/app-status').then(response => response.data);
@@ -50,3 +52,8 @@ export const getBestRoute = (params: BestRouteParams, authTokens?: string) => {
         }
     }).then(response => response.data);
 };
+
+export const getSwapHistoryData = (params: SwapHistoryDataParams) =>
+    API.get<SwapHistoryData>('/swap-history-data', {params}).then(
+        response => response.data
+    );

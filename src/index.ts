@@ -20,7 +20,8 @@ export {
     getAssetsRecord,
     getAssetsList,
     getBestRoute,
-    getAppStatus
+    getAppStatus,
+    getSwapHistoryData
 } from './utils/api.utils';
 export {toNano, fromNano} from './utils/big-int.utils';
 export {getQueryId} from './utils/transfer-params.utils';
