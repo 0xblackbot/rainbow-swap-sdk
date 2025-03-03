@@ -1,8 +1,11 @@
 import {DexTypeEnum} from '../enums/dex-type.enum';
+import {Asset} from "./asset.type";
 
 export type BestRouteDisplayData = {
+    inputAsset: Asset;
     inputAssetAmount: number;
     inputAssetUsdAmount: number;
+    outputAsset: Asset;
     outputAssetAmount: number;
     outputAssetUsdAmount: number;
     minOutputAssetAmount: number;

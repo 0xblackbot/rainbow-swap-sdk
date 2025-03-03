@@ -4,6 +4,7 @@ export {SwapRouteType} from './enums/swap-route-type.enum';
 export {SwapStatusEnum} from './enums/swap-status.enum';
 
 export type {Message} from './interfaces/message.interface';
+export type {SwapHistoryData} from './interfaces/swap-history-data.interface';
 
 export type {AppStatus} from './types/app-status.type';
 export type {Asset} from './types/asset.type';
