@@ -1,5 +1,5 @@
+import {Asset} from './asset.type';
 import {DexTypeEnum} from '../enums/dex-type.enum';
-import {Asset} from "./asset.type";
 
 export type BestRouteDisplayData = {
     inputAsset: Asset;
