@@ -8,4 +8,6 @@ export type Asset = {
     exchangeRate: string; // asset to TON exchange rate
     usdExchangeRate: number;
     verification: 'whitelist' | 'none';
+    totalSupply: string; // nano format
+    fdv: number; // value in USD
 };
