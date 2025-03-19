@@ -13,6 +13,7 @@ export type BestRouteDisplayData = {
     maxSlippage: number;
     routingFeePercent: number;
     priceImprovementPercent: number;
+    priceImpact: number;
     roughGasFee: number;
     roughGasUsdFee: number;
     routes: RouteDisplayData[];
