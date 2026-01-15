@@ -25,9 +25,14 @@ npm install rainbow-swap-sdk
 yarn add rainbow-swap-sdk
 ```
 
-## Integrate Your dApp
+## What you get
+- Typed API helpers for assets, routes, and swap history.
+- Utilities for TON amount conversion (`toNano`, `fromNano`).
+- Enum/type exports to keep your integration strongly typed.
 
-### Example: Swapping 1.35 TON to USDT
+## Integrate your dApp
+
+### Example: swapping 1.35 TON to USDT
 
 ```typescript
 import {getAssetsList, getBestRoute, toNano} from 'rainbow-swap-sdk';
@@ -62,6 +67,41 @@ const result = await tonConnectUI.sendTransaction({
 });
 ```
 
+## API overview
+### Assets
+```typescript
+import {getAssetsList} from 'rainbow-swap-sdk';
+
+const assets = await getAssetsList({
+    userAssets: ['ton'], // optional: user-held assets
+    searchValue: 'USDT', // optional: filter by name/symbol/address
+    limit: 100 // optional: 10..200
+});
+```
+
+### Best route
+```typescript
+import {getBestRoute, toNano} from 'rainbow-swap-sdk';
+
+const route = await getBestRoute({
+    inputAssetAmount: toNano('1.35', 9).toString(),
+    inputAssetAddress: 'ton',
+    outputAssetAddress: 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs',
+    senderAddress: 'UQDGGjjuwhikx8ZPJsrLbKXGq7mx26D8pK_l8GqBejzB52Pa',
+    maxSlippage: 1.5,
+    partnerId: 'demo-partner'
+});
+```
+
+### Swap history
+```typescript
+import {getSwapHistoryData} from 'rainbow-swap-sdk';
+
+const history = await getSwapHistoryData({
+    bocHash: '64c1a1c5b7c2f8...'
+});
+```
+
 ## Application Status Check
 
 You may want to check the status of your application to ensure everything is functioning correctly. For example, temporarily disable swaps if block production on TON is disrupted due to an external event like the DOGS listing.
@@ -74,6 +114,11 @@ const {
     message // Explanation of why swaps are disabled, if applicable
 } = await getAppStatus();
 ```
+
+## Notes
+- `getAssetsRecord` is deprecated; use `getAssetsList` instead.
+- `getBestRoute` returns `swapMessages` only when `senderAddress` is provided.
+- Requests to `getAssetsList` and `getBestRoute` cancel any previous in-flight request.
 
 ## Live Example
 
