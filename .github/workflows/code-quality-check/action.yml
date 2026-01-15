@@ -3,7 +3,8 @@ description: Installs dependencies and checks TS & linting
 runs:
   using: 'composite'
   steps:
-    - run: yarn install
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
       shell: bash
 
     - name: Check TypeScript
