@@ -1,37 +1,35 @@
 name: npm package deployment
 
 on:
-  push:
-    branches: [ "main" ]
+    push:
+        branches: ['main']
+
+permissions:
+    id-token: write
+    contents: read
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+    deploy:
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
-      - name: Use Node 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: 'yarn'
+            - name: Use Node 22
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: 'yarn'
+                  registry-url: 'https://registry.npmjs.org'
 
-      - name: Install dependencies and code quality check
-        uses: ./.github/workflows/code-quality-check
+            - name: Install dependencies and code quality check
+              uses: ./.github/workflows/code-quality-check
 
-      - name: Create build
-        run: yarn build
+            - name: Create build
+              run: yarn build
 
-      - name: Initialise the NPM config
-        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-
-      - name: Publish to npm
-        run: yarn publish
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            - name: Publish to npm
+              run: npm publish
