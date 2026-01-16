@@ -2,7 +2,10 @@
     "name": "rainbow-swap-sdk",
     "version": "1.5.13",
     "description": "SDK for building applications on top of Rainbow.ag - Swap Aggregator on TON 💎.",
-    "repository": "https://github.com/0xblackbot/rainbow-swap-sdk.git",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/0xblackbot/rainbow-swap-sdk.git"
+    },
     "homepage": "https://rainbow-ag.gitbook.io/docs/technical/sdk",
     "bugs": {
         "url": "https://t.me/rainbow_swap_manager"
