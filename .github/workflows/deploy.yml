@@ -18,10 +18,10 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: Use Node 22
+            - name: Use Node 24
               uses: actions/setup-node@v4
               with:
-                  node-version: 22
+                  node-version: 24
                   cache: 'yarn'
                   registry-url: 'https://registry.npmjs.org'
 
@@ -32,4 +32,4 @@ jobs:
               run: yarn build
 
             - name: Publish to npm
-              run: npm publish
+              run: npm publish --provenance --access public
