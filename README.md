@@ -11,21 +11,33 @@ This SDK is designed for building applications on top of [Rainbow.ag](https://gi
 [![npm version](https://badge.fury.io/js/rainbow-swap-sdk.svg)](https://badge.fury.io/js/rainbow-swap-sdk)
 ![NPM License](https://img.shields.io/npm/l/rainbow-swap-sdk)
 
+## Docs
+
+- SDK guide: https://rainbow-ag.gitbook.io/docs/technical/sdk
+- Full docs: https://rainbow-ag.gitbook.io/docs
+
+## Quick links
+
+- Support: https://t.me/rainbow_swap_manager
+
 ## Installation
 
 You can install the Rainbow Swap SDK using either npm or Yarn:
 
 **Using npm:**
+
 ```shell
 npm install rainbow-swap-sdk
 ```
 
 **Using Yarn:**
+
 ```shell
 yarn add rainbow-swap-sdk
 ```
 
 ## What you get
+
 - Typed API helpers for assets, routes, and swap history.
 - Utilities for TON amount conversion (`toNano`, `fromNano`).
 - Enum/type exports to keep your integration strongly typed.
@@ -44,7 +56,10 @@ const assetsList = await getAssetsList({
 
 // Retrieve specific assets by their address
 const inputAsset = assetsList.find(asset => asset.address === 'ton');
-const outputAsset = assetsList.find(asset => asset.address === 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs');
+const outputAsset = assetsList.find(
+    asset =>
+        asset.address === 'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs'
+);
 
 // 2. Load the best swap route and swap messages
 const bestRouteResponse = await getBestRoute({
@@ -68,7 +83,9 @@ const result = await tonConnectUI.sendTransaction({
 ```
 
 ## API overview
+
 ### Assets
+
 ```typescript
 import {getAssetsList} from 'rainbow-swap-sdk';
 
@@ -80,6 +97,7 @@ const assets = await getAssetsList({
 ```
 
 ### Best route
+
 ```typescript
 import {getBestRoute, toNano} from 'rainbow-swap-sdk';
 
@@ -94,6 +112,7 @@ const route = await getBestRoute({
 ```
 
 ### Swap history
+
 ```typescript
 import {getSwapHistoryData} from 'rainbow-swap-sdk';
 
@@ -116,6 +135,7 @@ const {
 ```
 
 ## Notes
+
 - `getAssetsRecord` is deprecated; use `getAssetsList` instead.
 - `getBestRoute` returns `swapMessages` only when `senderAddress` is provided.
 - Requests to `getAssetsList` and `getBestRoute` cancel any previous in-flight request.
