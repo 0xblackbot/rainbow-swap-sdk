@@ -7,5 +7,7 @@ export enum DexTypeEnum {
     StonWeightedStable = 'StonWeightedStable',
     CattonStable = 'CattonStable',
     Tonco = 'Tonco',
-    Torch = 'Torch'
+    Torch = 'Torch',
+    BidAskDamm = 'BidAskDamm',
+    BidAskDlmm = 'BidAskDlmm'
 }
