@@ -1,6 +1,6 @@
 {
     "name": "rainbow-swap-sdk",
-    "version": "1.5.15",
+    "version": "1.5.16",
     "description": "SDK for building applications on top of Rainbow.ag - Swap Aggregator on TON 💎.",
     "repository": {
         "type": "git",
