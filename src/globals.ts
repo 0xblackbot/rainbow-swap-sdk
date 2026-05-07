@@ -1,5 +1,5 @@
-import axios from 'axios';
+import {create} from 'axios';
 
-export const API = axios.create({
+export const API = create({
     baseURL: 'https://api.rainbow.ag/api'
 });
