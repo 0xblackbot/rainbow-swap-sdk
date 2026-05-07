@@ -1,6 +1,6 @@
 {
     "name": "rainbow-swap-sdk",
-    "version": "1.5.16",
+    "version": "1.6.0",
     "description": "SDK for building applications on top of Rainbow.ag - Swap Aggregator on TON 💎.",
     "repository": {
         "type": "git",
@@ -22,8 +22,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@rnw-community/shared": "^0.83.0",
-        "axios": "^1.10.0"
+        "axios": "^1.16.0"
     },
     "devDependencies": {
         "@types/node": "^20.14.10",
