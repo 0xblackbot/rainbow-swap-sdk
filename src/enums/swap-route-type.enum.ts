@@ -4,8 +4,10 @@ export enum SwapRouteType {
     Ston = 'Ston',
     Ston_v2 = 'Ston_v2',
     Rainbow = 'Rainbow',
-    CattonStable = 'CattonStable',
     Tonco = 'Tonco',
     Torch = 'Torch',
+    Coffee = 'Coffee',
+    MoonCxCpmm = 'MoonCxCpmm',
+    MoonCxClmm = 'MoonCxClmm',
     Bidask = 'Bidask'
 }
