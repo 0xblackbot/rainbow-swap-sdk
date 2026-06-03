@@ -1,3 +1,5 @@
+import {DexGroupIdEnum} from '../enums/dex-group-id.enum';
+
 export type BestRouteParams = {
     /**
      * The amount of the input asset that the user wants to send, specified in nano units.
@@ -56,6 +58,12 @@ export type BestRouteParams = {
      * **Default:** `5`
      */
     maxSlippage?: number;
+
+    /**
+     * (Optional) DEX groups to exclude from route calculation.
+     * Missing or empty value means all DEX groups are enabled.
+     */
+    disabledDexGroups?: DexGroupIdEnum[];
 
     /**
      * (Optional) The referral address of a user.

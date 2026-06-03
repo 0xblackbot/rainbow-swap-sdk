@@ -1,4 +1,5 @@
 import {API} from '../globals';
+import {getDisabledDexTypesParam} from './dex-group.utils';
 import {SwapHistoryData} from '../interfaces/swap-history-data.interface';
 import {AppStatus} from '../types/app-status.type';
 import {Asset} from '../types/asset.type';
@@ -38,14 +39,20 @@ export const getAssetsList = (params: AssetsListParams) => {
     }).then(response => response.data);
 };
 
-export const getBestRoute = (params: BestRouteParams, authTokens?: string) => {
+export const getBestRoute = (
+    {disabledDexGroups, ...params}: BestRouteParams,
+    authTokens?: string
+) => {
     if (abortControllers.bestRoute) {
         abortControllers.bestRoute.abort();
     }
     abortControllers.bestRoute = new AbortController();
 
     return API.get<BestRouteResponse>('/best-route', {
-        params,
+        params: {
+            ...params,
+            disabledDexTypes: getDisabledDexTypesParam(disabledDexGroups)
+        },
         signal: abortControllers.bestRoute.signal,
         headers: {
             Authorization: authTokens

@@ -1,3 +1,4 @@
+export {DexGroupIdEnum} from './enums/dex-group-id.enum';
 export {DexTypeEnum} from './enums/dex-type.enum';
 export {RouteDirectionEnum} from './enums/route-direction.enum';
 export {SwapRouteType} from './enums/swap-route-type.enum';
@@ -17,6 +18,8 @@ export type {
 } from './types/best-route-display-data.type';
 export type {BestRouteParams} from './types/best-route-params.type';
 export type {BestRouteResponse} from './types/best-route-response.type';
+export type {DexGroup} from './types/dex-group.type';
+export {DEX_GROUPS} from './types/dex-group.type';
 
 export {
     getAssetsRecord,
