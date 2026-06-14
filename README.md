@@ -39,12 +39,12 @@ yarn add rainbow-swap-sdk
 ## What you get
 
 - Typed API helpers for assets, routes, and swap history.
-- Utilities for TON amount conversion (`toNano`, `fromNano`).
+- Utilities for GRAM amount conversion (`toNano`, `fromNano`).
 - Enum/type exports to keep your integration strongly typed.
 
 ## Integrate your dApp
 
-### Example: swapping 1.35 TON to USDT
+### Example: swapping 1.35 GRAM to USDT
 
 ```typescript
 import {getAssetsList, getBestRoute, toNano} from 'rainbow-swap-sdk';
@@ -63,7 +63,7 @@ const outputAsset = assetsList.find(
 
 // 2. Load the best swap route and swap messages
 const bestRouteResponse = await getBestRoute({
-    inputAssetAmount: toNano('1.35', inputAsset.decimals).toString(), // Convert 1.35 TON to nano format
+    inputAssetAmount: toNano('1.35', inputAsset.decimals).toString(), // Convert 1.35 GRAM to nano format
     inputAssetAddress: inputAsset.address,
     outputAssetAddress: outputAsset.address,
     senderAddress: 'UQDGGjjuwhikx8ZPJsrLbKXGq7mx26D8pK_l8GqBejzB52Pa', // Optional user wallet address; if set, swap messages will be returned

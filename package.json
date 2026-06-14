@@ -1,6 +1,6 @@
 {
     "name": "rainbow-swap-sdk",
-    "version": "1.9.0",
+    "version": "1.9.1",
     "description": "SDK for building applications on top of Rainbow.ag - Swap Aggregator on TON 💎.",
     "repository": {
         "type": "git",
@@ -46,6 +46,7 @@
         "DEX",
         "decentralized-exchange",
         "TON",
+        "GRAM",
         "TON blockchain",
         "decentralized finance",
         "DeFi",

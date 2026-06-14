@@ -5,7 +5,7 @@ export type BestRouteParams = {
      * The amount of the input asset that the user wants to send, specified in nano units.
      * This should be a string representation of a bigint value.
      *
-     * **Example:** `'1350000000'` (represents 1.35 TON in nano).
+     * **Example:** `'1350000000'` (represents 1.35 GRAM in nano).
      */
     inputAssetAmount: string;
 
@@ -13,7 +13,7 @@ export type BestRouteParams = {
      * The address or identifier of the asset that the user wants to send.
      *
      * **Example:**
-     * - `'ton'` for TON.
+     * - `'ton'` for GRAM.
      * - `'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs'` for USDT.
      */
     inputAssetAddress: string;
@@ -22,7 +22,7 @@ export type BestRouteParams = {
      * The address or identifier of the asset that the user wants to receive.
      *
      * **Example:**
-     * - `'ton'` for TON.
+     * - `'ton'` for GRAM.
      * - `'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs'` for USDT.
      */
     outputAssetAddress: string;

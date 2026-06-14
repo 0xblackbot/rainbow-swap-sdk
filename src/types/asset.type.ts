@@ -5,7 +5,7 @@ export type Asset = {
     name: string;
     image: string;
     decimals: number;
-    exchangeRate: string; // asset to TON exchange rate
+    exchangeRate: string; // asset to GRAM exchange rate
     usdExchangeRate: number;
     verification: 'whitelist' | 'none';
     totalSupply: string; // nano format

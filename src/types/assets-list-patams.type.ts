@@ -3,7 +3,7 @@ export type AssetsListParams = {
      * A list of asset addresses that the user holds balances in.
      *
      * **Example values:**
-     * - `'ton'` for TON.
+     * - `'ton'` for GRAM.
      * - `'EQCxE6mUtQJKFnGfaROTKOt1lZbDiiX1kCixRv7Nw2Id_sDs'` for USDT.
      *
      * **Default:** An empty array (`[]`), indicating no specified user assets.
