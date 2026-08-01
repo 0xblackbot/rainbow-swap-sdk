@@ -2,6 +2,7 @@ export enum DexTypeEnum {
     DeDust = 'DeDust',
     DeDustCpmmV2 = 'DeDustCpmmV2',
     DeDustStable = 'DeDustStable',
+    Uranus = 'Uranus',
     Ston = 'Ston',
     Ston_v2 = 'Ston_v2',
     StonStable = 'StonStable',

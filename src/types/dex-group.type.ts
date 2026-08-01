@@ -38,6 +38,12 @@ export const DEX_GROUPS: readonly DexGroup[] = [
         dexTypes: [DexTypeEnum.DeDustCpmmV2]
     },
     {
+        id: DexGroupIdEnum.Uranus,
+        name: 'Uranus',
+        image: 'https://raw.githubusercontent.com/0xblackbot/rainbow-swap/refs/heads/main/public/external-assets/uranus.png',
+        dexTypes: [DexTypeEnum.Uranus]
+    },
+    {
         id: DexGroupIdEnum.Tonco,
         name: 'Tonco',
         image: 'https://raw.githubusercontent.com/0xblackbot/rainbow-swap/refs/heads/main/public/external-assets/tonco.jpg',
