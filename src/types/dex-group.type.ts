@@ -41,7 +41,7 @@ export const DEX_GROUPS: readonly DexGroup[] = [
         id: DexGroupIdEnum.Tonco,
         name: 'Tonco',
         image: 'https://raw.githubusercontent.com/0xblackbot/rainbow-swap/refs/heads/main/public/external-assets/tonco.jpg',
-        dexTypes: [DexTypeEnum.Tonco]
+        dexTypes: [DexTypeEnum.Tonco, DexTypeEnum.Tonco_v1_6]
     },
     {
         id: DexGroupIdEnum.Bidask,

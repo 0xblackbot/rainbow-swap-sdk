@@ -8,6 +8,7 @@ export enum DexTypeEnum {
     StonStable = 'StonStable',
     StonWeightedStable = 'StonWeightedStable',
     Tonco = 'Tonco',
+    Tonco_v1_6 = 'Tonco_v1_6',
     Torch = 'Torch',
     MoonCxCpmm = 'MoonCxCpmm',
     MoonCxClmm = 'MoonCxClmm',
